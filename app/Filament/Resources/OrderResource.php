@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Filament\Resources;
+use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\DeleteAction;
@@ -265,6 +266,7 @@ class OrderResource extends Resource
     public static function getRelations(): array
     {
         return [
+            AddressRelationManager::class,
             //
         ];
     }
