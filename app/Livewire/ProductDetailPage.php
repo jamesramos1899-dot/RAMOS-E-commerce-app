@@ -4,15 +4,50 @@ namespace App\Livewire;
 use App\Models\Product;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-
+use App\Helpers\CartManagement;
+use App\Livewire\Partials\Navbar;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert; // v4 correct
 
 #[Title('Product Detail- DCodeMania')]
 class ProductDetailPage extends Component
 {
+    
     public $slug;
+
+    public $quantity = 1;
 
     public function mount($slug){
         $this->slug = $slug;
+    }
+
+    public function increaseQty()
+    {
+        $this->quantity++;
+    }
+    public function decreaseQty()
+    {
+        if($this->quantity > 1){
+            $this->quantity--;
+        }
+    }
+
+    public function addToCart($product_id)
+    {
+        $total_count = CartManagement::addItemToCart($product_id);
+
+        $this->dispatch(
+            'update-cart-count',
+            total_count: count(\App\Helpers\CartManagement::getCartItemsFromCookie())
+        )->to(\App\Livewire\Partials\Navbar::class);
+
+        LivewireAlert::title('Product Added!')
+            ->text('Added to cart successfully.')
+            ->success()
+            ->toast()
+            ->position('bottom-end')
+            ->timer(3000)
+            ->show();
+    
     }
 
     public function render()
