@@ -41,7 +41,7 @@ class LatestOrders extends BaseWidget
                         'processing' => 'warning',
                         'shipped' => 'success',
                         'delivered' => 'success',
-                        'cancelled' => 'danger',
+                        'canceled' => 'danger',
 
                     })
 
@@ -50,7 +50,7 @@ class LatestOrders extends BaseWidget
                         'processing' => 'heroicon-m-arrow-path',
                         'shipped' => 'heroicon-m-truck',
                         'delivered' => 'heroicon-m-check-badge',
-                        'cancelled' => 'heroicon-m-x-circle',
+                        'canceled' => 'heroicon-m-x-circle',
                     })
                     ->sortable(),
 
