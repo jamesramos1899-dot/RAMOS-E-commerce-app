@@ -65,7 +65,7 @@
     </button>
 
     <div class="hs-dropdown-menu hidden md:w-48 z-10 bg-white md:shadow-md rounded-lg p-2 dark:bg-gray-800">
-        <a class="block py-2 px-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+        <a class="block py-2 px-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700" wire:navigate href="/my-orders">
             My Orders
         </a>
         <a class="block py-2 px-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
